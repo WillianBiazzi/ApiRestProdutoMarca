@@ -1,0 +1,85 @@
+package br.upf.produtomarca.controller;
+
+import java.util.List;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
+
+import br.upf.produtomarca.dto.MarcaDTO;
+import br.upf.produtomarca.service.MarcaService;
+import br.upf.produtomarca.utils.TokenJWT;
+
+@RestController
+@RequestMapping(value = "/produtomarca/marca")
+public class MarcaController {
+
+    @Autowired
+    private MarcaService MarcaService;
+
+    @Autowired
+    private ModelMapper modelMapper;
+
+    @PostMapping(value = "/inserir")
+    @ResponseStatus(HttpStatus.CREATED)
+    public MarcaDTO inserir(@RequestBody MarcaDTO MarcaDTO,
+                            @RequestHeader(value = "token") String token) {
+        TokenJWT.validarToken(token);
+        return MarcaService.salvar(MarcaDTO);
+    }
+
+    @GetMapping(value = "/listarTodos")
+    @ResponseStatus(HttpStatus.OK)
+    public List<MarcaDTO> listarTodos(@RequestHeader(value = "token") String token) {
+        TokenJWT.validarToken(token);
+        return MarcaService.listarTodos();
+    }
+
+    @GetMapping(value = "/buscarPorId")
+    @ResponseStatus(HttpStatus.OK)
+    public MarcaDTO buscarPorId(@RequestHeader(value = "id") Long id,
+                                @RequestHeader(value = "token") String token) {
+        TokenJWT.validarToken(token);
+        return marcaService.buscarPorId(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST,
+                        "Marca não encontrada."));
+    }
+
+    @DeleteMapping(value = "/delete")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removerMarca(@RequestHeader(value = "id") Long id,
+                             @RequestHeader(value = "token") String token) {
+        TokenJWT.validarToken(token);
+        MarcaService.buscarPorId(id)
+                .ifPresentOrElse(marca -> {
+                    marcaService.removerPorId(marca.getId());
+                }, () -> {
+                    throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Marca não encontrada.");
+                });
+    }
+
+    @PutMapping(value = "/atualizar")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void atualizar(@RequestBody MarcaDTO MarcaDTO,
+                          @RequestHeader(value = "token") String token) {
+        TokenJWT.validarToken(token);
+        MarcaService.buscarPorId(MarcaDTO.getId())
+                .ifPresentOrElse(marcaBase -> {
+                    modelMapper.map(MarcaDTO, marcaBase);
+                    marcaService.salvar(marcaBase);
+                }, () -> {
+                    throw new ResponseStatusException(
+                            HttpStatus.BAD_REQUEST, "Marca não encontrada.");
+                });
+    }
+}

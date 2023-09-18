@@ -1,0 +1,32 @@
+package br.upf.produtomarca.service;
+
+import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import br.upf.produtomarca.dto.ValueDTO;
+import br.upf.produtomarca.repository.ValueRepository;
+
+@Service
+public class ValueService {
+
+	@Autowired
+	private ValueRepository ValueRepository;
+	
+	public MarcaDTO salvar(ValueDTO dto) {
+		return ValueRepository.save(dto);
+	}
+	
+	public List<MarcaDTO> listarTodos(){
+		return ValueRepository.findAll();
+	}
+	
+	public Optional<MarcaDTO> buscarPorId(Long id) {
+		return ValueRepository.findById(id);
+	}
+	
+	public void removerPorId(Long id) {
+		MarcaRepository.deleteById(id);
+	}
+	
+}

@@ -1,0 +1,765 @@
+{
+	"info": {
+		"_postman_id": "e2c0535e-0ba9-48d6-8071-695aa5f4e01e",
+		"name": "produtomarca - Willian Biazzi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29748540"
+	},
+	"item": [
+		{
+			"name": "SpringBoot",
+			"item": [
+				{
+					"name": "produtoMarca",
+					"item": [
+						{
+							"name": "user",
+							"item": [
+								{
+									"name": "listarTodos",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5NjI5MDEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc0ODI5MDF9.caDDUeFJADknT2bOJ_jLgj_HG7O_LJ0IWj0Sf4qEkUI",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/user/listarTodos",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"user",
+												"listarTodos"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "buscarPorId",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "id",
+												"value": "1",
+												"type": "text"
+											},
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5NjI5MDEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc0ODI5MDF9.caDDUeFJADknT2bOJ_jLgj_HG7O_LJ0IWj0Sf4qEkUI",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/user/buscarPorId",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"user",
+												"buscarPorId"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "BuscarPorEmail",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "email",
+												"value": "willianbiazzideoliveria@gmail.com",
+												"type": "text"
+											},
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5NjI5MDEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc0ODI5MDF9.caDDUeFJADknT2bOJ_jLgj_HG7O_LJ0IWj0Sf4qEkUI",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/user/buscarPorEmail",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"user",
+												"buscarPorEmail"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "buscarPorParteNome",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "nome",
+												"value": "Wil",
+												"type": "text"
+											},
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5NjI5MDEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc0ODI5MDF9.caDDUeFJADknT2bOJ_jLgj_HG7O_LJ0IWj0Sf4qEkUI",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/user/buscarPorParteNome",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"user",
+												"buscarPorParteNome"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "buscarPorSenha",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "senha",
+												"value": "admin123",
+												"type": "text"
+											},
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5NjI5MDEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc0ODI5MDF9.caDDUeFJADknT2bOJ_jLgj_HG7O_LJ0IWj0Sf4qEkUI",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/user/buscarPorSenha",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"user",
+												"buscarPorSenha"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "authorize",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "email",
+												"value": "willianbiazzideoliveira@gmail.com",
+												"type": "text"
+											},
+											{
+												"key": "password",
+												"value": "admin123",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/user/authorize",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"user",
+												"authorize"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "inserir",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5NjI5MDEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc0ODI5MDF9.caDDUeFJADknT2bOJ_jLgj_HG7O_LJ0IWj0Sf4qEkUI",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nome\": \"Joaozinho do Spring\",\r\n    \"email\": \"joaozinho@gmail.com\",\r\n    \"senha\": \"qwert\",\r\n    \"nascimento\":\"2002-05-31-00:00:00\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/user/inserir",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"user",
+												"inserir"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "atualizar",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5NjI5MDEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc0ODI5MDF9.caDDUeFJADknT2bOJ_jLgj_HG7O_LJ0IWj0Sf4qEkUI",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 2,    \r\n    \"email\": \"email_atualizado@gmail.com\",\r\n    \"senha\": \"123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/user/atualizar",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"user",
+												"atualizar"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "id",
+												"value": "2",
+												"type": "text"
+											},
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5NjI5MDEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc0ODI5MDF9.caDDUeFJADknT2bOJ_jLgj_HG7O_LJ0IWj0Sf4qEkUI",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/user/delete",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"user",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Produtos",
+							"item": [
+								{
+									"name": "listarTodos",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5NjI5MDEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc0ODI5MDF9.caDDUeFJADknT2bOJ_jLgj_HG7O_LJ0IWj0Sf4qEkUI",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/produto/listarTodos",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"produto",
+												"listarTodos"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "buscarPorId",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "id",
+												"value": "1",
+												"type": "text"
+											},
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5NjI5MDEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc0ODI5MDF9.caDDUeFJADknT2bOJ_jLgj_HG7O_LJ0IWj0Sf4qEkUI",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/produto/buscarPorId",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"produto",
+												"buscarPorId"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5NjI5MDEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc0ODI5MDF9.caDDUeFJADknT2bOJ_jLgj_HG7O_LJ0IWj0Sf4qEkUI",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "inserir",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5NjI5MDEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc0ODI5MDF9.caDDUeFJADknT2bOJ_jLgj_HG7O_LJ0IWj0Sf4qEkUI",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nome\": \"Calça Dry-fit\",\r\n    \"descricao\": \"Calça da Nike\",\r\n    \"marca\": {\"id\":2}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/produto/inserir",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"produto",
+												"inserir"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5NjI5MDEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc0ODI5MDF9.caDDUeFJADknT2bOJ_jLgj_HG7O_LJ0IWj0Sf4qEkUI",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "atualizar",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5ODg3NTEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc1MDg3NTF9.GB5wGkk7nkaGoArYlCEU5n335rwTLqmhJmrKqUb_E28",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\":8,\r\n    \"nome\": \"Calça Dry-fit \",\r\n    \"descricao\": \"Calça da Nike para praticantes de esportes \",\r\n    \"marca\": {\"id\":2}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/produto/atualizar",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"produto",
+												"atualizar"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2NjI1ODE1NjAsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2NjUxMDE1NjB9.BamLGhtoLfGcH0EOTUg1m5-HI2oVz2_7nxFm8sg0YT0",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "id",
+												"value": "1",
+												"type": "text"
+											},
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5NjI5MDEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc0ODI5MDF9.caDDUeFJADknT2bOJ_jLgj_HG7O_LJ0IWj0Sf4qEkUI",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/produto/delete",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"produto",
+												"delete"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2NjI1ODE1NjAsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2NjUxMDE1NjB9.BamLGhtoLfGcH0EOTUg1m5-HI2oVz2_7nxFm8sg0YT0",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Marca",
+							"item": [
+								{
+									"name": "listarTodos",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5ODg3NTEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc1MDg3NTF9.GB5wGkk7nkaGoArYlCEU5n335rwTLqmhJmrKqUb_E28",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/marca/listarTodos",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"marca",
+												"listarTodos"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "buscarPorIdMarca",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "id",
+												"value": "1",
+												"type": "text"
+											},
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5ODg3NTEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc1MDg3NTF9.GB5wGkk7nkaGoArYlCEU5n335rwTLqmhJmrKqUb_E28",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/marca/buscarPorId",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"marca",
+												"buscarPorId"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "atualizar",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5ODg3NTEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc1MDg3NTF9.GB5wGkk7nkaGoArYlCEU5n335rwTLqmhJmrKqUb_E28",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n        \"id\": 1,\r\n        \"name\": \"Apple\",\r\n        \"descricao\": \" projeta e comercializa produtos eletrônicos de consumo, software de computador e computadores pessoais.\"\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/marca/atualizar",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"marca",
+												"atualizar"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "inserir",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5ODg3NTEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc1MDg3NTF9.GB5wGkk7nkaGoArYlCEU5n335rwTLqmhJmrKqUb_E28",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nome\": \"Microsoft\",\r\n    \"descricao\": \"desenvolve, fabrica, licencia, apoia e vende softwares de computador, produtos eletrônicos, computadores e serviços pessoais.\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/marca/inserir",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"marca",
+												"inserir"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "id",
+												"value": "4",
+												"type": "text"
+											},
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTQ5ODg3NTEsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc1MDg3NTF9.GB5wGkk7nkaGoArYlCEU5n335rwTLqmhJmrKqUb_E28",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/produtomarca/marca/delete",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"produtomarca",
+												"marca",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "authorization_token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "username",
+			"value": "Willian Biazzi De Oliveira",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "admin123",
+			"type": "string"
+		}
+	]
+}
