@@ -1,0 +1,59 @@
+package br.upf.produtomarca.controller.test;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import br.upf.produtomarca.controller.UserController;
+import br.upf.produtomarca.dto.UserDTO;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+@SpringBootApplication
+@WebMvcTest(UserController.class)
+@ActiveProfiles("test")
+public class UserControllerIntegrationTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    // Exemplo de teste de inserção de usuário
+    @Test
+    public void testInserirUsuario() throws Exception {
+        // Crie um UserDTO para enviar no corpo da requisição
+        UserDTO userDTO = new UserDTO();
+        userDTO.setNome("Novo Usuário");
+        userDTO.setEmail("novousuario@example.com");
+        userDTO.setSenha("senha123");
+
+        // Converte o UserDTO em JSON
+        String userJson = objectMapper.writeValueAsString(userDTO);
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/produtomarca/user/inserir")
+                .header("token", "seu-token-de-autenticacao")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(userJson))
+                .andExpect(MockMvcResultMatchers.status().isCreated());
+    }
+
+    // Exemplo de teste para listar todos os usuários
+    @Test
+    public void testListarTodosUsuarios() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/produtomarca/user/listarTodos")
+                .header("token", "seu-token-de-autenticacao"))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    // Adicione mais testes para outras operações conforme necessário
+}

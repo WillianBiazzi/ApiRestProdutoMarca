@@ -1,0 +1,9 @@
+package br.upf.produtomarca;
+
+import java.util.List;
+import br.upf.produtomarca.service.UserService;
+
+public class UserServiceTest {
+	private UserService userService = 
+
+}

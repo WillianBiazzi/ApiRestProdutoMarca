@@ -1,0 +1,41 @@
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+public class UserControllerIntegrationTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    // Você também pode injetar o UserService aqui, se necessário.
+
+    @BeforeEach
+    public void setUp() {
+        // Realizar configurações de inicialização antes de cada teste, se necessário.
+    }
+
+    @Test
+    public void testInserirUsuario() throws Exception {
+        // Crie um objeto UserDTO para enviar como JSON no corpo da solicitação.
+        // UserDTO userDTO = new UserDTO(); // Preencha os campos do usuário, se necessário.
+
+        mockMvc.perform(MockMvcRequestBuilders
+                .post("/produtomarca/user/inserir")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("JSON do UserDTO aqui")
+                .header("token", "seu_token_aqui"))
+                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.alguma_propriedade").value("algun_valor_esperado"));
+    }
+
+    // Adicione outros testes para os outros métodos do UserController da mesma forma.
+
+}

@@ -1,0 +1,54 @@
+package br.upf.produtomarca.controller.test;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import java.util.Date;
+
+import br.upf.produtomarca.dto.UserDTO;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+public class UserControllerIntegrationTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @BeforeEach
+    public void setUp() {
+        // Realizar configurações de inicialização antes de cada teste, se necessário.
+    }
+
+    @Test
+    public void testInserirUsuario() throws Exception {
+        // Crie um objeto UserDTO para enviar como JSON no corpo da solicitação.
+        UserDTO userDTO = new UserDTO();
+        userDTO.setNome("Nome do Usuário");
+        userDTO.setEmail("usuario@example.com");
+        userDTO.setSenha("senha123");
+        userDTO.setDataNascimento(new Date());
+        userDTO.setToken("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTUyNDg4MDgsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTc3Njg4MDh9.sedwJ5squntyu1t533gRbxi8pIAS4KX0JPVKEdLT41k"); // valor real do token.
+
+        mockMvc.perform(MockMvcRequestBuilders
+                .post("/produtomarca/user/inserir")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(userDTO))
+                .header("token", "seu_token_aqui")) // Substitua "seu_token_aqui" pelo valor real do token.
+                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.alguma_propriedade").value("algun_valor_esperado"));
+    }
+
+    // Adicione outros testes para os outros métodos do UserController da mesma forma.
+
+}

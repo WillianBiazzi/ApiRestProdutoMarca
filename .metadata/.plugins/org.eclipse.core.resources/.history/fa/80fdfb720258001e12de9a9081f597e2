@@ -1,0 +1,5 @@
+package br.upf.produtomarca.controller.test;
+
+public class UserControllerIntegrationTest {
+
+}
