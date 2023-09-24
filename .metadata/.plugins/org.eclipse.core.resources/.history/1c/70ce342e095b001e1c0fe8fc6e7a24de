@@ -1,0 +1,168 @@
+package br.upf.produtomarca.controller.test;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.springframework.http.MediaType;
+
+
+
+import br.upf.produtomarca.dto.UserDTO;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+public class UserControllerTest {
+
+    @Autowired
+    public MockMvc mockMvc;
+
+    public Long userId;
+
+    @BeforeEach
+    public void setUp() {
+        // Configurações de inicialização antes de cada teste.
+        // Aqui, criei um usuário no banco de dados e armazenar o ID na variável userId.
+        UserDTO userDTO = new UserDTO();
+        userDTO.setNome("Willian Padrao");
+        userDTO.setEmail("willianpadrao@example.com");
+        userDTO.setSenha("user1");
+
+        try {
+            String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTU1MjI0NDgsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTgwNDI0NDh9.ZStKUderEBvMVwg4y6uWKvZRcdCKBF4-99AARVO145Q"; // Substitua pelo token real que você deseja usar.
+
+            MvcResult result = mockMvc.perform(post("/produtomarca/user/inserir")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(new ObjectMapper().writeValueAsString(userDTO))
+                    .header("token", token))
+                    .andExpect(status().isCreated())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(jsonPath("$.id").exists())
+                    .andReturn();
+
+            String responseJson = result.getResponse().getContentAsString();
+            UserDTO responseUserDTO = new ObjectMapper().readValue(responseJson, UserDTO.class);
+            userId = responseUserDTO.getId(); // Armazena o ID do usuário criado.
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testInserirUsuario() throws Exception {
+        // Criando um objeto UserDTO para ser inserido no BD.
+        UserDTO userDTO = new UserDTO();
+        userDTO.setNome("Willian Integracao");
+        userDTO.setEmail("willianintegracao@example.com");
+        userDTO.setSenha("mepassa123");
+
+        // Convertendo o objeto UserDTO em JSON para enviar na solicitação POST.
+        String userDTOJson = new ObjectMapper().writeValueAsString(userDTO);
+
+        // Fazendo uma solicitação POST para o endpoint de inserção de usuário e trazendo a resposta.
+        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTU1MjI0NDgsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTgwNDI0NDh9.ZStKUderEBvMVwg4y6uWKvZRcdCKBF4-99AARVO145Q"; // Substitua pelo token real que você deseja usar.
+        MvcResult result = mockMvc.perform(post("/produtomarca/user/inserir")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(userDTOJson)
+                .header("token", token)) // Adicione o cabeçalho token aqui
+                .andExpect(status().isCreated()) // Verifique se a resposta tem status 201 (Created).
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.id").exists()) // Verifique se a resposta contém um campo "id" no JSON retornado.
+                .andReturn(); // Captura a resposta
+
+        // Converta o JSON de resposta em um objeto UserDTO.
+        String responseJson = result.getResponse().getContentAsString();
+        UserDTO responseUserDTO = new ObjectMapper().readValue(responseJson, UserDTO.class);
+        
+        // Verifique se o objeto retornado está igual ao objeto criado.
+        assertEquals("Willian Integracao", responseUserDTO.getNome());
+        assertEquals("willianintegracao@example.com", responseUserDTO.getEmail());
+        assertEquals("mepassa123", responseUserDTO.getSenha());
+
+        
+}
+    
+    @Test
+    public void testListarTodosUsuarios() throws Exception {
+        // Faça uma solicitação GET para o endpoint de listagem de usuários e verifique a resposta.
+        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTU1MjI0NDgsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTgwNDI0NDh9.ZStKUderEBvMVwg4y6uWKvZRcdCKBF4-99AARVO145Q"; // Substitua pelo token real que você deseja usar.
+        MvcResult result = mockMvc.perform(get("/produtomarca/user/listarTodos")
+                .header("token", token))
+                .andExpect(status().isOk()) // Verifique se a resposta tem status 200 (OK).
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andReturn(); // Captura a resposta
+
+        // Converta o JSON de resposta em uma lista de UserDTO.
+        String responseJson = result.getResponse().getContentAsString();
+        List<UserDTO> userList = new ObjectMapper().readValue(responseJson, new TypeReference<List<UserDTO>>() {});
+        
+        assertFalse(userList.isEmpty());
+
+        // Ou verificar se a lista contém um usuário específico com base em algum critério.
+        // Por exemplo, verificar se há um usuário com um nome específico.
+        boolean hasUserWithName = userList.stream().anyMatch(user -> user.getNome().equals("Willian Integracao"));
+        assertTrue(hasUserWithName);
+    }
+    
+    @Test
+    public void testAtualizarUsuario() throws Exception {
+        assertNotNull(userId);
+
+        // Criar um objeto UserDTO com os dados atualizados.
+        UserDTO userDTOAtualizado = new UserDTO();
+        userDTOAtualizado.setId(userId); // Defina o ID do usuário que você deseja atualizar.
+        userDTOAtualizado.setNome("Novo Nome");
+        userDTOAtualizado.setEmail("novonome@example.com");
+        userDTOAtualizado.setSenha("novasenha");
+
+        // Converta o objeto UserDTO em JSON para enviar na solicitação PUT.
+        String userDTOJson = new ObjectMapper().writeValueAsString(userDTOAtualizado);
+
+        // Faça uma solicitação PUT para o endpoint de atualização de usuário.
+        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTU1MjI0NDgsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTgwNDI0NDh9.ZStKUderEBvMVwg4y6uWKvZRcdCKBF4-99AARVO145Q"; // Substitua pelo token real.
+
+        // Modifique a solicitação PUT para enviar o ID no corpo da solicitação.
+        mockMvc.perform(put("/produtomarca/user/atualizar")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(userDTOJson)
+                .header("token", token))
+                .andExpect(status().isNoContent()); // Verifique se a resposta tem status 204 (NoContent).
+    }
+
+    @Test
+    public void testRemoverUsuario() throws Exception {
+        // Certifique-se de que userId não seja nulo (você pode criá-lo na função setUp).
+        assertNotNull(userId);
+
+        // Realize uma solicitação DELETE para remover o usuário pelo ID.
+        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3aWxsaWFuYmlhenppZGVvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJ1cGYiLCJpYXQiOjE2OTU1MjI0NDgsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2OTgwNDI0NDh9.ZStKUderEBvMVwg4y6uWKvZRcdCKBF4-99AARVO145Q"; // Substitua pelo token real.
+        mockMvc.perform(delete("/produtomarca/user/delete")
+                .header("token", token)
+                .header("id", userId.toString())) // Passa o ID do usuário a ser removido.
+                .andExpect(status().isNoContent()); // Verifique se a resposta tem status 204 (No Content).
+
+        // Tente buscar o usuário pelo ID após a remoção e verifique se a resposta é 404 (Not Found).
+        mockMvc.perform(get("/produtomarca/user/buscarPorId/{id}", userId)
+                .header("token", token))
+                .andExpect(status().isNotFound());
+    }
+  
+
+}
